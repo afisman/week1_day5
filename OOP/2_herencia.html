@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        class Person {
+
+            constructor(nameValue, lastNameValue, ageValue, accountValue) {
+                this.name = nameValue
+                this.lastName = lastNameValue
+                this.age = ageValue
+                this.account = accountValue
+                this.tokens = 100
+            }
+
+            updateAccount(newNumber) {
+                this.account = newNumber
+            }
+        }
+
+        const person1 = new Person('German', 'Alvarez', 35, 'ES89 7848 8273')
+        const person2 = new Person('Conchi', 'Sánchez', 56, 'ES99 6647 2290')
+
+        console.log(`Me llamo ${person2.name}  ${person2.lastName} y tengo ${person2.tokens} tokens!`)
+
+
+
+
+
+        console.log('-----')
+
+
+
+
+
+        class Player extends Person {
+
+            constructor(nameValue, lastNameValue, ageValue, accountValue, nickValue) {
+                super(nameValue, lastNameValue, ageValue, accountValue)
+                this.nick = nickValue
+                this.lives = 10
+            }
+
+            looseLive() {
+                this.lives--
+            }
+
+            chargeLives(amountToCharge) {
+                const pricePerLive = 20
+                const totalPrice = pricePerLive * amountToCharge
+
+                if (this.tokens < totalPrice) {
+                    console.error('ERROR: sólo dipones de', this.tokens, 'tokens (necesarios ', totalPrice, ')')
+                } else {
+                    this.tokens -= totalPrice
+                    this.lives += amountToCharge
+                }
+            }
+        }
+
+
+        const player1 = new Player('Luisa', 'Ramirez', 22, 'ES89 7848 8273', 'RuBiSeLaHo_Ó')
+
+        console.log(`Me llamo ${player1.name} aunque mi nick es ${player1.nick} y tengo ${player1.lives} vidas`)
+        player1.looseLive()
+        player1.looseLive()
+        player1.looseLive()
+        console.log(`Me llamo ${player1.name} y tengo ${player1.lives} vidas`)
+
+        player1.chargeLives(30)
+        player1.chargeLives(4)
+
+        console.log(`¡Ahora tengo ${player1.lives} vidas!`)
+
+
+
+
+        console.log('-----')
+
+
+
+        class Witch extends Player {
+            constructor(nameValue, lastNameValue, ageValue, accountValue, nickValue, spellValue) {
+                super(nameValue, lastNameValue, ageValue, accountValue, nickValue)
+                this.spell = spellValue
+            }
+
+            makeSpell() {
+                console.warn('LA BRUJA TE HIZO EL HECHIZO', this.spell, '¡CUIDADO!')
+            }
+        }
+
+
+
+        const witch1 = new Witch('Charini', 'Lopez', 54, 'ES89 7848 8273', 'Piruja', 'Abracadabra')
+
+        console.log(`Me llamo ${witch1.nick} (en realidad ${witch1.name}), tengo ${witch1.tokens} tokens y te hago un ${witch1.spell}`)
+        witch1.makeSpell()
+
+
+
+        console.log('-----')
+
+
+
+        class Gnome extends Player {
+            constructor(nameValue, lastNameValue, ageValue, accountValue, nickValue, attackValue) {
+                super(nameValue, lastNameValue, ageValue, accountValue, nickValue)
+                this.attack = attackValue
+            }
+
+            procceedAttack() {
+                console.warn('El gnomo te va a atacar con su truco', this.attack, '... ¡qué guarro!')
+            }
+        }
+
+        const gnome1 = new Gnome('Raúl', 'Diaz', 17, 'ES87 7456 8575', 'David el gnomo', 'Escupitajos')
+
+        console.log(`Me llamo ${gnome1.name} tengo ${gnome1.lives} vidas y te hago un ${gnome1.attack}`)
+
+        gnome1.procceedAttack()
+
+    </script>
+</body>
+
+</html>

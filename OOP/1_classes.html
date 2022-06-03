@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        class Person {
+
+            constructor(nameValue, lastNameValue, ageValue, weightValue, hobbiesValue) {
+                this.name = nameValue
+                this.lastName = lastNameValue
+                this.age = ageValue
+                this.weight = weightValue
+                this.hobbies = hobbiesValue
+            }
+
+            learnNewHobby(newHobby) {
+                this.hobbies.push(newHobby)
+            }
+
+            grow(extraYears = 1) {
+                this.age += extraYears
+            }
+        }
+
+
+
+        // Instances declaration
+        const person1 = new Person('German', 'Alvarez', 35, 80, ['beer', 'programming'])
+        const person2 = new Person('Marcos', 'del Olivo', 37, 81, ['testing', 'wine'])
+
+
+
+
+        // Instance properties access
+        console.log(`Me llamo ${person1.name} y tengo ${person1.age} años`)
+
+        // Instance methods access
+        console.log('Me llamo', person1.name, 'y mis hobbies son:', person1.hobbies)
+        person1.learnNewHobby('gadgets')
+        console.log('Y ahora son:', person1.hobbies)
+
+        // Instance methods access
+        console.log('Me llamo', person2.name, 'y mis hobbies son:', person2.hobbies)
+        person2.learnNewHobby('beer')
+        console.log('Y ahora son:', person2.hobbies)
+
+        // Instance methods access
+        console.log(`Tengo ${person1.age} años`)
+        person1.grow(10)
+        console.log(`Tengo ${person1.age} años`)
+
+    </script>
+</body>
+
+</html>

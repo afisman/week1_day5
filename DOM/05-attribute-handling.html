@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 class="title red">Soy el título</h1>
+    <a href="https://www.google.es" title="Ir a Google">Ir a Google</a>
+
+
+    <script>
+
+
+        // ----> attribute handling (not class!)
+        const link = document.querySelector('a')
+
+        // attibute handling (setter)
+        link.setAttribute('href', 'https://www.yahoo.es')
+        link.setAttribute('title', 'Ir a Yahoo')
+        link.innerText += ` (en realidad voy a Yahoo jejeje)`
+
+
+
+
+
+
+
+        // ----> attribute handling (only class!)
+        const title = document.querySelector('h1')
+
+        // attibute handling (setter)
+        title.classList.add('lol', 'rolfcopter')
+        title.classList.remove('red')
+
+
+
+
+    </script>
+</body>
+
+</html>

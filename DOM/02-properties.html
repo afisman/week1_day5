@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="title1" class="clase-inicial-primera clase-inicial-segunda">Contenido inicial</h1>
+    <h2 id="title2">Contenido secundario</h2>
+
+    <p class="paragraph">Soy el primer párrafo</p>
+    <p class="paragraph">Soy el segundo párrafo</p>
+    <p class="paragraph">Soy un párrafo</p>
+
+    <h5 class="subtitle">Soy un subtítulo</h5>
+
+
+    <script>
+
+        const title1 = document.querySelector('#title1')
+
+        // Node properties (getter)
+        console.log('Todas las propiedades:', { title1 })
+        console.log(`El texto del título es ${title1.innerText}`)
+        console.log(`Las clases del título son ${title1.className}`)
+        console.log(`La etiqueta del título es ${title1.tagName}`)
+
+        // Node properties (setter)
+        title1.innerHTML = 'He sido cambiado desde el <em>script</em> jejejeje'
+        title1.style.color = 'red'
+        title1.style.backgroundColor = 'green'
+
+
+        // Node list properties (setter - iterated)
+        const allParagraphs = document.querySelectorAll('.paragraph')
+        allParagraphs.forEach(eachParagraph => {
+            eachParagraph.style.color = 'red'
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

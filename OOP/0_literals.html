@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        const person = {
+            name: 'German',
+            lastName: 'Alvarez',
+            celiac: false,
+            address: {
+                street: 'García Luna',
+                neighbourhood: 'Prospe',
+                postalCode: 28002
+            },
+            hobbies: ['sky', 'coding', 'beer', 'rave'],
+            age: 35,
+            height: 1.7,
+            weight: 80,
+            subscriptions: [
+                {
+                    name: 'Netflix',
+                    cost: 14.99
+                },
+                {
+                    name: 'Glovo Prime',
+                    cost: 9.99
+                }
+            ],
+            learnNewHobby(newHobby) {
+                this.hobbies.push(newHobby)
+            },
+            gainWeight(extraWeight) {
+                this.weight += extraWeight
+            },
+            subscribe(subscriptionName, subscriptionPrice) {
+                const newSubscription = { name: subscriptionName, cost: subscriptionPrice }
+                this.subscriptions.push(newSubscription)
+            },
+            getTotalSubscriptionsCost() {
+                let total = 0
+                this.subscriptions.forEach(eachSubscription => {
+                    total += eachSubscription.cost
+                })
+                return total.toFixed(2)
+            },
+            grow(extraYears = 1) {
+                this.age += extraYears
+            }
+        }
+
+        // Object properties access
+        console.log(`Me llamo ${person.name} y tengo ${person.age} años`)
+        console.log('Mis hobbies son:', person.hobbies)
+
+        // Object methods access
+        person.learnNewHobby('gadgets')
+        console.log('Y ahora son:', person.hobbies)
+
+        console.log(`Peso ${person.weight} kilos`)
+        person.gainWeight(2)
+        console.log(`Peso ${person.weight} kilos`)
+
+        console.log(`Mis sibscriptiones son:`, person.subscriptions)
+        person.subscribe('HBO', 12.5)
+        console.log(`Mis sibscriptiones son:`, person.subscriptions)
+
+        const totalCost = person.getTotalSubscriptionsCost()
+        console.log(`Estoy pagando en total`, totalCost, '€')
+
+        console.log(`Tengo ${person.age} años`)
+        person.grow()
+        console.log(`Tengo ${person.age} años`)
+
+    </script>
+</body>
+
+</html>
